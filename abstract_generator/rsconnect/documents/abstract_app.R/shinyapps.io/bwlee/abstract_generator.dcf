@@ -1,0 +1,13 @@
+name: abstract_generator
+title: abstract_generator
+username:
+account: bwlee
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6185090
+bundleId: 5843361
+url: https://bwlee.shinyapps.io/abstract_generator/
+when: 1651076383.40204
+lastSyncTime: 1651076383.40204
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,7 +1,18 @@
 #
-# This is another of Ben's very silly auto-text generators.
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
 #
-# Dwarf name auto-generator for use in D&D campaigns.
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
 #
 
 library(shiny)
@@ -11,43 +22,18 @@ library(ggfittext)
 
 dwarf_fun <- function(){
     
-    first.start <- c("Bargo", "Dibble", "Hork", "Grogg", "Bordo", 
-               "Mumpo", "Grabbi", "Drog","Drago", "Arch", "Don", "Bun",
-               "Honk", "Dorp", "Arno",  "Mongo", "Elder", "Dorn", "Dun",
-               "Gor", "Gir", "Gun","Din","Gin", "Greg",
-               "Fin", "Far", "Fred", "Himl", "Him", "Eor","Ed",
-               "Jim", "Jer", "Jeff", "Kur", "Kyur", "Kev",
-               "Len", "Lor", "Dav","Min","Mom", "Ned",
-               "Ooyr", "Ok","Pin","Ren","Ran","Ted",
-               "Zed","Zil","Jon"
-               
+    first <- c("Craggle", "Doinklus", "Bargo", "Dibblus", "Jibblo", "Grogg", "Bordo", 
+               "Mumpo", "Grabbi", "Drog","Smelt","Ore", "Metal", "Stone", "Bone", "Craft",
+               "Brew","Beans","Meat","Lamb","Beef", "Drago", "Arch", 
+               "Honk", "Dorp", "Arno", "Hunger", "Mutton"
     )
     
-    first.end <- c("ion", "idorus", "acious", "onk", "oofo","igan", "","ist","idon", "yr", 
-                   "rith", "ruff","mon", "grel", "dil","non", "nan","idon","or","urth","ther",
-                   "ibald", "ith","ont", "","","", "i","et","if","gon","fir","fyr",
-                   "hut","ingo","hip","ip","li"
-                   
-                   
-                   )
+    last <- c("ion", "idorus", "monacious", "onk", "oofo", "beard", "legs", "strong", "eater", 
+              "haven", "sword", "shield", "hammer", "blade", "brewer", "haver", "render", "slayer",
+              "igan", "", " The Third","shank", "tuft", "burn", "spear")
     
     
-    last.start <- c("Craggle","Brew","Beans","Meat","Lamb","Beef","Hunger", "Mutton","Diddle",
-                    "Shatter","Smelt","Ore", "Metal", "Stone", "Bone", "Craft","Crag",
-                    "Storm", "Light","Smash", "Break","Breakfast","Mead","Wine", "Dearth",
-                    "Mason", "Tall","Short","Wide","Thick", "Char","Rend","Silver","Gold",
-                    "Ruby","Diamond","Wooden","Oak","Maple","Fur","Spine")
-        
-        
-       
-    last.end <- c("beard", "legs", "strong", "eater", "ino",
-                  "haven", "sword", "shield", "hammer", "blade", "brewer", "haver", "render", "slayer",
-                  " The Third","shank", "tuft", "burn", "spear",
-                  "mountain", "hearth", "grabber","thief","gard",
-                  "fire","cury","dell", "knell", "grove", "gotten",
-                  "hope", "crack","ton","mound","stall","gauntlet","hand","foot","thumb","legs")
-    
-    comment =  paste0(sample(first.start, size = 1),sample(first.end,size = 1), " ", sample(last.start, size = 1),sample(last.end,size = 1))
+    comment =  paste0(sample(first, size = 1),sample(last,size = 1), " ", sample(first, size = 1),sample(last,size = 1))
     
     return(comment)
     
