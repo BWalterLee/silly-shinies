@@ -8,10 +8,10 @@ library(shinythemes)
 
 # Paper Generator Function V 0.1 ####
 # Test Version, no external inputs
-paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
+paper_fun <- function(Noun_List,Author_list = c("Johnson", "Reginald", "Washington","Chambers")){
   
   #
-  nouns = as.list(unlist(strsplit(Noun_list,split = ",")))
+  nouns = Noun_List
   #Author_list = strsplit(input$Author_list, split = ",")
   
   points = c("we may never truly understand",
@@ -241,11 +241,11 @@ paper_fun <- function(Noun_list,Author_list = c("Johnson", "Reginald", "Washingt
   
 }
 
-title_fun <- function(Noun_list) {
+title_fun <- function(Noun_List) {
   
   # Formatting Input as List
-  #nouns = as.list(unlist(strsplit(input$Noun_list,split = ",")))
-  nouns = as.list(unlist(strsplit(Noun_list,split = ",")))
+  #nouns = as.list(unlist(strsplit(input$Noun_List,split = ",")))
+  nouns = Noun_List
   
   # First half of title (as "subject")
   first_half <- c(
@@ -348,8 +348,12 @@ ui <- fluidPage(
       
       
       # Text input for study subjects 
-      textInput("Noun_list","Plural Nouns separated by ',', spaces between words are ok (e.g. 'snails,tide pools,urchins')"),
-      
+      textInput("Noun_individual","Input plural nouns below."),
+        actionButton('add',"add"),
+      br(),
+      br(),
+      h4("Current List of Terms"),
+      textOutput('Noun_List'),
       
      # # Text input for any specific authors
      # textInput("Author_list","Authors names separated by ',' (not required)"),
@@ -378,16 +382,29 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # Generate text in response
-  output$paper <- 
+
+Noun_List <- reactiveValues()
+      observe({if(input$add >0){
+        Noun_List$dList <- c(isolate(Noun_List$dList), isolate(input$Noun_individual))
+        
+      }
+      })
+     
+
+  output$Noun_List <- renderPrint({
+    Noun_List$dList
+  })
+  
+    output$paper <- 
     eventReactive(input$goButtontext, {
-    paper_fun(Noun_list = input$Noun_list)
+    paper_fun(Noun_List = Noun_List$dList)
   })
   
   
   # Generate title in response
   output$abstract_title <- 
     eventReactive(input$goButtontitle, {
-    title_fun(Noun_list = input$Noun_list)
+    title_fun(Noun_List = Noun_List$dList)
   })
   
   

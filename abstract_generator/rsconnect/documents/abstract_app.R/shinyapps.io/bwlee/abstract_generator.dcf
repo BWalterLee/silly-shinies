@@ -5,9 +5,10 @@ account: bwlee
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6185090
-bundleId: 5843361
+bundleId: 6968454
 url: https://bwlee.shinyapps.io/abstract_generator/
-when: 1651076383.40204
-lastSyncTime: 1651076383.40204
+when: 1679002848.49562
+lastSyncTime: 1679002848.49562
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: abstract_app_function_testing.R
